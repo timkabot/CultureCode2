@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/band_menu_item"
+        android:enabled="true"
+        android:icon="@drawable/band"
+        android:title="Band"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/emergency_menu_item"
+        android:enabled="true"
+        android:icon="@drawable/emergency"
+        android:title="Features" />
+    <item
+        android:id="@+id/my_account_menu_item"
+        android:enabled="true"
+        android:title="My Account"
+        android:icon="@drawable/my_account"
+        app:showAsAction="ifRoom" />
+</menu>

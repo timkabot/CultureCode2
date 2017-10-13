@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="220dp"
+        android:layout_height="174dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/band" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:gravity="center"
+        android:layout_width="369dp"
+        android:layout_height="32dp"
+        android:textSize="24dp"
+        android:text="Возможности браслета" />
+
+    <ListView
+        android:layout_gravity="center"
+        android:id="@+id/band_features_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
