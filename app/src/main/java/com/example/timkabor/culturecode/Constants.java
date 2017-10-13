@@ -14,27 +14,57 @@ public class Constants {
     ArrayList<Feature> features;
     ArrayList<String> bandFeatures;
     ArrayList<Account> accounts;
+    ArrayList<String> bandImagesUrls;
+    ArrayList<String> bandCommands;
     public Constants() {
         features = new ArrayList<>();
-        features.add( new Feature(1,"Детская площадка", "http://www.buildindia.co.in/wp-content/themes/buildindia/images/cate_1.png"));
-        features.add( new Feature(2,"Парковка", "http://kometa-hotel.ru/wp-content/uploads/2016/04/advantage_2.png"));
-        features.add( new Feature(3,"Магазин", "http://www.embygames.com/assets/img/icons/shop-icon.png"));
-        features.add( new Feature(4,"ЖКХ", "http://fondenergo.ru/templates/fondenergo/images/clients/jkh.png"));
-        features.add( new Feature(5,"Досуг", "https://previews.123rf.com/images/guillermain/guillermain1310/guillermain131000062/23226957-Leisure-icons-Stock-Photo.jpg"));
+        features.add( new Feature(1,"Детская площадка", "kids_space.jpg"));
+        features.add( new Feature(2,"Парковка", "parking.jpg"));
+        features.add( new Feature(3,"Магазин", "shop.jpg"));
+        features.add( new Feature(4,"ЖКХ", "jkh.png"));
+        features.add( new Feature(5,"Досуг", "peshehod.jpg"));
+        features.add( new Feature(6,"Дистанционный мониторинг", "monitoring.png"));
+
 
         bandFeatures = new ArrayList<>();
         bandFeatures.add("У вас есть возможность использовать браслет как кредитную карту ");
         bandFeatures.add("С помощью браслета можно отслеживать местоположение носителя ");
-        bandFeatures.add("Проверка количества свободных мест -> 'Сколько свободных мест на моей парковке?' ");
-        bandFeatures.add("Проверка наличия товара в магазине -> 'Есть ли 'имя товара' в ближайшем магазине?' ");
+        bandFeatures.add("Местная инфраструктура поддерживает обслуживание браслета (магазины, )");
+
+        bandCommands = new ArrayList<>();
+        bandCommands.add("Проверка количества свободных мест \n ---> 'Сколько свободных мест на моей парковке?' ");
+        bandCommands.add("Проверка наличия товара в магазине \n ---> 'Есть ли 'имя товара' в ближайшем магазине?' ");
+        bandCommands.add("Проверка температуру дома \n ---> 'Какая температура дома?' ");
 
         accounts = new ArrayList<>();
         accounts.add(new Account("Albert","123qwerty","Albert","Badretdinov",19, 2374, 1956, 723, 837, 500, 777, 381 , 15423));
-        accounts.add(new Account("Timur","123qwerty","Timur","Borgalinov",20, 2121, 1321, 463, 519, 1000, 456, 258, 7843));
+        accounts.add(new Account("Timur","123qwerty" ,"Timur" ,"Borgalinov" ,20, 2121, 1321, 463, 519, 1000, 456, 258, 7843));
+
+        bandImagesUrls = new ArrayList<>();
+        bandImagesUrls.add("https://shoot-n-joy.ru/blog/wp-content/uploads/2016/03/xiaomi-mi-band-2-2015.jpg");
+        bandImagesUrls.add("https://hsto.org/files/fd5/62c/e1f/fd562ce1f9484d2f90410ec3ccf29201.jpg");
+        bandImagesUrls.add("https://images-na.ssl-images-amazon.com/images/I/51BVLVfHlXL.jpg");
+        bandImagesUrls.add("http://moto360.com.ua/wp-content/uploads/2017/07/mi-band-3.jpg");
     }
 
     public ArrayList<Account> getAccounts() {
         return accounts;
+    }
+
+    public ArrayList<String> getBandCommands() {
+        return bandCommands;
+    }
+
+    public void setBandCommands(ArrayList<String> bandCommands) {
+        this.bandCommands = bandCommands;
+    }
+
+    public ArrayList<String> getBandImagesUrls() {
+        return bandImagesUrls;
+    }
+
+    public void setBandImagesUrls(ArrayList<String> bandImagesUrls) {
+        this.bandImagesUrls = bandImagesUrls;
     }
 
     public void setAccounts(ArrayList<Account> accounts) {

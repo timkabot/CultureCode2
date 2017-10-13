@@ -2,9 +2,12 @@ package com.example.timkabor.culturecode.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.model.Feature;
+import com.example.timkabor.culturecode.view.impl.KidAreaActivity;
 import com.example.timkabor.culturecode.view.impl.MainActivity;
 import com.example.timkabor.culturecode.view.impl.SendMessageActivity;
 
@@ -49,8 +53,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Feature feature = mFeatureList.get(position);
         holder.mFeatureTitle.setText(feature.getName());
-        System.out.println(feature.getCover());
-        App.loadImageFromURL(feature.getCover(), holder.mFeatureImage,mContext);
+        App.setDrawableByName(feature.getCover(), holder.mFeatureImage,mContext.getApplicationContext());
     }
 
     @Override
@@ -79,6 +82,15 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
         public void onClick(View view) {
             Feature feature = mFeatureList.get(getAdapterPosition());
 
+            switch (feature.getId()){
+                case 1:
+                    goToKidArea();
+                    break;
+            }
+        }
+        public void goToKidArea() {
+            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
+            mainActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
             Bundle arguments = new Bundle();
             arguments.putInt("sightId", feature.getId());
 
@@ -94,5 +106,6 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             //mainActivity.showNewFragment(fragment);
 
         }
+
     }
 }
