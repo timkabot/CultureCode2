@@ -119,7 +119,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             }
         }
         public void goToKidArea() {
-            mContext.getApplicationContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
+            mContext.getApplicationContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
 
     }
