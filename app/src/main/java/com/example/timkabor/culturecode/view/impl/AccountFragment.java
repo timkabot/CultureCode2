@@ -35,7 +35,6 @@ public class AccountFragment extends Fragment {
     @BindView(R.id.doubtList) ListView doubtList;
     @BindView(R.id.account_balance) TextView balance;
     @BindView(R.id.account_name) TextView name;
-    @BindView(R.id.account_surname) TextView surname;
     private ArrayList<String> doubts;
     private Account myAccount;
     SharedPreferences sPref;
@@ -52,8 +51,7 @@ public class AccountFragment extends Fragment {
         return view;
     }
     public void assignValues() {
-        name.setText(myAccount.getName());
-        surname.setText(myAccount.getSurname());
+        name.setText(myAccount.getName() + " " + myAccount.getSurname());
         balance.setText("У вас на счету " + myAccount.getBalance() + Html.fromHtml(" &#x20bd"));
         doubts = new ArrayList<>();
         doubts.add("Электричество -> " + myAccount.getElectricity() + Html.fromHtml(" &#x20bd"));
@@ -63,7 +61,7 @@ public class AccountFragment extends Fragment {
         doubts.add("Интернет ->" + myAccount.getInternet() + Html.fromHtml(" &#x20bd"));
         doubts.add("Телефон ->" + myAccount.getPhone() + Html.fromHtml(" &#x20bd"));
         doubts.add("Телевидение ->" + myAccount.getTV() + Html.fromHtml(" &#x20bd"));
-        ArrayAdapter adapter = new ArrayAdapter<>(getActivity(),
+        ArrayAdapter<String>  adapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_list_item_1, doubts);
 
         doubtList.setAdapter(adapter);

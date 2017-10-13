@@ -2,9 +2,11 @@ package com.example.timkabor.culturecode.view.impl;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +55,7 @@ public class FeaturesFragment extends Fragment {
         mFeaturesRecyclerView.setLayoutManager(manager);
     }
     private void initToolbar() {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Возможности");
+        ActionBar toolbar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        toolbar.setTitle("Возможности");
     }
 }

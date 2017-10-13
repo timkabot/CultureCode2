@@ -19,4 +19,8 @@
     <string name="registered_emailid">Please enter your Registered Email Id below:</string>
     <string name="submit">SUBMIT</string>
     <string name="back">BACK</string>
+    <string name="ficha">Фича</string>
+    <string name="name_and_surname">Name and surname</string>
+    <string name="doubts">Задолженности:</string>
+    <string name="send_to_concierge_hint">write your message</string>
 </resources>
