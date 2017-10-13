@@ -15,6 +15,7 @@ public class Constants {
     ArrayList<String> bandFeatures;
     ArrayList<Account> accounts;
     ArrayList<String> bandImagesUrls;
+    ArrayList<String> bandCommands;
     public Constants() {
         features = new ArrayList<>();
         features.add( new Feature(1,"Детская площадка", "http://www.buildindia.co.in/wp-content/themes/buildindia/images/cate_1.png"));
@@ -22,16 +23,21 @@ public class Constants {
         features.add( new Feature(3,"Магазин", "http://www.embygames.com/assets/img/icons/shop-icon.png"));
         features.add( new Feature(4,"ЖКХ", "http://fondenergo.ru/templates/fondenergo/images/clients/jkh.png"));
         features.add( new Feature(5,"Досуг", "https://previews.123rf.com/images/guillermain/guillermain1310/guillermain131000062/23226957-Leisure-icons-Stock-Photo.jpg"));
+        features.add( new Feature(6,"Дистанционный мониторинг", "http://icons.iconarchive.com/icons/custom-icon-design/flatastic-9/512/Monitoring-icon.png"));
+
 
         bandFeatures = new ArrayList<>();
         bandFeatures.add("У вас есть возможность использовать браслет как кредитную карту ");
         bandFeatures.add("С помощью браслета можно отслеживать местоположение носителя ");
-        bandFeatures.add("Проверка количества свободных мест -> 'Сколько свободных мест на моей парковке?' ");
-        bandFeatures.add("Проверка наличия товара в магазине -> 'Есть ли 'имя товара' в ближайшем магазине?' ");
+        bandFeatures.add("Местная инфраструктура поддерживает обслуживание браслета (магазины, )");
+
+        bandCommands = new ArrayList<>();
+        bandCommands.add("Проверка количества свободных мест -> 'Сколько свободных мест на моей парковке?' ");
+        bandCommands.add("Проверка наличия товара в магазине -> 'Есть ли 'имя товара' в ближайшем магазине?' ");
 
         accounts = new ArrayList<>();
         accounts.add(new Account("Albert","123qwerty","Albert","Badretdinov",19, 2374, 1956, 723, 837, 500, 777, 381 , 15423));
-        accounts.add(new Account("Timur","123qwerty","Timur","Borgalinov",20, 2121, 1321, 463, 519, 1000, 456, 258, 7843));
+        accounts.add(new Account("Timur","123qwerty" ,"Timur" ,"Borgalinov" ,20, 2121, 1321, 463, 519, 1000, 456, 258, 7843));
 
         bandImagesUrls = new ArrayList<>();
         bandImagesUrls.add("https://shoot-n-joy.ru/blog/wp-content/uploads/2016/03/xiaomi-mi-band-2-2015.jpg");

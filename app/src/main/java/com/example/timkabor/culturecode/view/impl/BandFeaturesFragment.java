@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.example.timkabor.culturecode.Constants;
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.adapter.FeatureAdapter;
@@ -23,8 +26,8 @@ import butterknife.ButterKnife;
  */
 
 public class BandFeaturesFragment extends Fragment {
-    @BindView(R.id.band_features_list)
-    ListView mFeaturesView;
+    @BindView(R.id.band_features_list) ListView mFeaturesView;
+    @BindView(R.id.slider) SliderLayout slider;
     private ArrayList<String> featureList;
     private FeatureAdapter mAdapter;
 
@@ -38,6 +41,15 @@ public class BandFeaturesFragment extends Fragment {
         initToolbar();
 
         Constants c = new Constants();
+        for(String url : c.getBandImagesUrls()){
+            DefaultSliderView sliderView = new DefaultSliderView(getActivity());
+            System.out.println(url);
+            sliderView
+                    .image(url)
+                    .setScaleType(BaseSliderView.ScaleType.CenterCrop);
+            slider.addSlider(sliderView);
+        }
+
         setBandInfoData(c.getBandFeatures());
         return view;
     }
