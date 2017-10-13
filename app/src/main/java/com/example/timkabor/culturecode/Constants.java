@@ -14,6 +14,7 @@ public class Constants {
     ArrayList<Feature> features;
     ArrayList<String> bandFeatures;
     ArrayList<Account> accounts;
+    ArrayList<String> bandImagesUrls;
     public Constants() {
         features = new ArrayList<>();
         features.add( new Feature(1,"Детская площадка", "http://www.buildindia.co.in/wp-content/themes/buildindia/images/cate_1.png"));
@@ -31,10 +32,24 @@ public class Constants {
         accounts = new ArrayList<>();
         accounts.add(new Account("Albert","123qwerty","Albert","Badretdinov",19, 2374, 1956, 723, 837, 500, 777, 381 , 15423));
         accounts.add(new Account("Timur","123qwerty","Timur","Borgalinov",20, 2121, 1321, 463, 519, 1000, 456, 258, 7843));
+
+        bandImagesUrls = new ArrayList<>();
+        bandImagesUrls.add("https://shoot-n-joy.ru/blog/wp-content/uploads/2016/03/xiaomi-mi-band-2-2015.jpg");
+        bandImagesUrls.add("https://hsto.org/files/fd5/62c/e1f/fd562ce1f9484d2f90410ec3ccf29201.jpg");
+        bandImagesUrls.add("https://images-na.ssl-images-amazon.com/images/I/51BVLVfHlXL.jpg");
+        bandImagesUrls.add("http://moto360.com.ua/wp-content/uploads/2017/07/mi-band-3.jpg");
     }
 
     public ArrayList<Account> getAccounts() {
         return accounts;
+    }
+
+    public ArrayList<String> getBandImagesUrls() {
+        return bandImagesUrls;
+    }
+
+    public void setBandImagesUrls(ArrayList<String> bandImagesUrls) {
+        this.bandImagesUrls = bandImagesUrls;
     }
 
     public void setAccounts(ArrayList<Account> accounts) {

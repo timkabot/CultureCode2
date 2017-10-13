@@ -6,12 +6,11 @@
     android:layout_margin="8dp"
     >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="220dp"
-        android:layout_height="174dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/band" />
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+         />
 
     <TextView
         android:id="@+id/textView6"
