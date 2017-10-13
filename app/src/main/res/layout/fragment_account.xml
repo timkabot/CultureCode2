@@ -22,6 +22,7 @@
             android:textSize="24sp"
             android:textStyle="bold|italic"
             android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
             android:textColor="#000000"
             />
 
@@ -31,7 +32,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="24dp"
             android:hint="У вас на счету 12000 рублей"
-            android:gravity="center"
             />
 
         <TextView
@@ -40,15 +40,16 @@
             android:layout_height="wrap_content"
             android:text="@string/doubts"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="12dp"
             android:layout_marginLeft="8dp"
             app:layout_constraintTop_toBottomOf="@+id/account_balance"
             />
 
         <ListView
             android:id="@+id/doubtList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="307dp"
+            android:layout_height="381dp"
+            android:layout_gravity="center"
             >
         </ListView>
 
