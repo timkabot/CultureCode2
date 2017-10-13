@@ -34,6 +34,7 @@ public class Constants {
         bandCommands = new ArrayList<>();
         bandCommands.add("Проверка количества свободных мест -> 'Сколько свободных мест на моей парковке?' ");
         bandCommands.add("Проверка наличия товара в магазине -> 'Есть ли 'имя товара' в ближайшем магазине?' ");
+        bandCommands.add("Проверка температуру дома -> 'Какая температура дома?' ");
 
         accounts = new ArrayList<>();
         accounts.add(new Account("Albert","123qwerty","Albert","Badretdinov",19, 2374, 1956, 723, 837, 500, 777, 381 , 15423));

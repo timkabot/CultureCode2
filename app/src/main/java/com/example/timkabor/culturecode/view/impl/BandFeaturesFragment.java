@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
@@ -26,11 +28,11 @@ import butterknife.ButterKnife;
  */
 
 public class BandFeaturesFragment extends Fragment {
-    @BindView(R.id.band_features_list) ListView mFeaturesView;
+    @BindView(R.id.band_features_list) LinearLayout mFeaturesView;
     @BindView(R.id.slider) SliderLayout slider;
     private ArrayList<String> featureList;
     private FeatureAdapter mAdapter;
-
+    Constants c;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,7 +42,7 @@ public class BandFeaturesFragment extends Fragment {
         setHasOptionsMenu(true);
         initToolbar();
 
-        Constants c = new Constants();
+        c = new Constants();
         for(String url : c.getBandImagesUrls()){
             DefaultSliderView sliderView = new DefaultSliderView(getActivity());
             System.out.println(url);
@@ -55,10 +57,11 @@ public class BandFeaturesFragment extends Fragment {
     }
     public void setBandInfoData(ArrayList<String> features) {
         featureList = features;
-        ArrayAdapter adapter = new ArrayAdapter<>(getActivity(),
-                android.R.layout.simple_list_item_1, featureList);
-
-        mFeaturesView.setAdapter(adapter);
+        for(int i=0;i<c.getBandFeatures().size();i++) {
+            TextView tv = new TextView(getContext());
+            tv.setText(c.getBandFeatures().get(i));
+            mFeaturesView.addView(tv);
+        }
 
     }
     private void initToolbar() {
