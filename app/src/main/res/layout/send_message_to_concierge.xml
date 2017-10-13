@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary_dark"
-        android:text="Send message"
+        android:text="send message"
         />
 
 </LinearLayout>
