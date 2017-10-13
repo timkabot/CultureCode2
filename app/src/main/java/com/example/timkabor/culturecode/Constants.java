@@ -20,22 +20,22 @@ public class Constants {
         features = new ArrayList<>();
         features.add( new Feature(1,"Детская площадка", "kids_space.jpg"));
         features.add( new Feature(2,"Парковка", "parking.jpg"));
-        features.add( new Feature(3,"Магазин", "shop.jpg"));
+        features.add( new Feature(3,"Охрана", "security.jpg"));
         features.add( new Feature(4,"Консьерж сервис", "jkh.png"));
         features.add( new Feature(5,"Досуг", "peshehod.jpg"));
         features.add( new Feature(6,"Дистанционный мониторинг", "monitoring.png"));
 
 
         bandFeatures = new ArrayList<>();
-        bandFeatures.add("У вас есть возможность использовать браслет как кредитную карту ");
-        bandFeatures.add("С помощью браслета можно отслеживать местоположение носителя ");
-        bandFeatures.add("Местная инфраструктура поддерживает обслуживание браслета (магазин/спорткомплекс/баня)");
+        bandFeatures.add("   У вас есть возможность использовать браслет как кредитную карту");
+        bandFeatures.add("   С помощью браслета можно отслеживать местоположение носителя");
+        bandFeatures.add("   Местная инфраструктура поддерживает обслуживание браслета (магазин/спорткомплекс/баня)");
 
         bandCommands = new ArrayList<>();
-        bandCommands.add(" ---> 'Сколько свободных мест на парковке?' ");
-        bandCommands.add(" ---> 'Есть ли 'имя товара' в магазине?' ");
-        bandCommands.add(" ---> 'Какая температура дома?' ");
-        bandCommands.add(" ---> 'Хочу узнать мой баланс на счету' ");
+        bandCommands.add(" ---> Сколько свободных мест на парковке? ");
+        bandCommands.add(" ---> Есть ли 'имя товара' в магазине? ");
+        bandCommands.add(" ---> Какая температура дома? ");
+        bandCommands.add(" ---> Хочу узнать мой баланс на счету ");
 
 
         accounts = new ArrayList<>();
