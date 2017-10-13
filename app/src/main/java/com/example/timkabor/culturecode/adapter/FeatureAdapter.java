@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.model.Feature;
-import com.example.timkabor.culturecode.view.impl.DosugActivity;
 import com.example.timkabor.culturecode.view.impl.KidAreaActivity;
 import com.example.timkabor.culturecode.view.impl.MainActivity;
 import com.example.timkabor.culturecode.view.impl.SendMessageActivity;
@@ -28,6 +27,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Timkabor on 10/13/2017.
@@ -73,7 +78,14 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
         }
+        public void onNextBooking()
+        {
 
+        }
+        public void onError()
+        {
+
+        }
         /**
          * Обработка нажатия на выбранном элементе
          * Запускает фрагмент описания фичи
@@ -87,6 +99,21 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
                 case 1:
                     goToKidArea();
                     break;
+                case 2:
+                    Call<ParkingAction> call =  App.getAPI().changeParkingState();
+                    call.enqueue(new Callback<ParkingAction>() {
+                        @Override
+                        public void onResponse(Call<ParkingAction> call, Response<ParkingAction> response) {
+                            if(response.isSuccessful()) {
+                                System.out.println("Lucky request");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ParkingAction> call, Throwable t) {
+                        }
+                    });
+                    break;
                 case 4:
                     view.getContext().startActivity( new Intent(view.getContext(), SendMessageActivity.class));
                     break;
@@ -96,7 +123,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             }
         }
         public void goToKidArea() {
-            mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
+            mContext.getApplicationContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
         }
 
     }
