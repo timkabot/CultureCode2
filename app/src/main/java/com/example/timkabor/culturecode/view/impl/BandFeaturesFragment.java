@@ -79,6 +79,6 @@ public class BandFeaturesFragment extends Fragment {
         }
     }
     private void initToolbar() {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Возможности Браслета");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(" Возможности браслета  ");
     }
 }

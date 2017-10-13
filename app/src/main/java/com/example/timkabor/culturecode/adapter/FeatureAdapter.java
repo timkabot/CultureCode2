@@ -86,25 +86,14 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
                 case 1:
                     goToKidArea();
                     break;
+                case 4:
+                    Intent intent = new Intent(view.getContext(), SendMessageActivity.class);
+                    Toast.makeText(view.getContext(), "pressed", Toast.LENGTH_SHORT).show();
+                    view.getContext().startActivity(intent);
             }
         }
         public void goToKidArea() {
             mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
-            mainActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-            Bundle arguments = new Bundle();
-            arguments.putInt("sightId", feature.getId());
-
-            if (mFeatureTitle.getText() == "ЖКХ") {
-                Intent intent = new Intent(view.getContext(), SendMessageActivity.class);
-                Toast.makeText(view.getContext(), "pressed", Toast.LENGTH_SHORT).show();
-                view.getContext().startActivity(intent);
-            }
-
-           // SightDescriptionFragment fragment = new SightDescriptionFragment();
-           // fragment.setArguments(arguments);
-
-            //mainActivity.showNewFragment(fragment);
-
         }
 
     }

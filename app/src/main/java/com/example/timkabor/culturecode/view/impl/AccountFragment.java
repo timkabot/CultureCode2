@@ -53,14 +53,15 @@ public class AccountFragment extends Fragment {
     public void assignValues() {
         name.setText(myAccount.getName() + " " + myAccount.getSurname());
         balance.setText("У вас на счету " + myAccount.getBalance() + Html.fromHtml(" &#x20bd"));
+
         doubts = new ArrayList<>();
         doubts.add("Электричество -> " + myAccount.getElectricity() + Html.fromHtml(" &#x20bd"));
-        doubts.add("Свет ->" + myAccount.getLight() +  Html.fromHtml(" &#x20bd"));
-        doubts.add("Газ ->" + myAccount.getGas() + Html.fromHtml(" &#x20bd"));
-        doubts.add("Вода ->" + myAccount.getWater() + Html.fromHtml(" &#x20bd"));
-        doubts.add("Интернет ->" + myAccount.getInternet() + Html.fromHtml(" &#x20bd"));
-        doubts.add("Телефон ->" + myAccount.getPhone() + Html.fromHtml(" &#x20bd"));
-        doubts.add("Телевидение ->" + myAccount.getTV() + Html.fromHtml(" &#x20bd"));
+        doubts.add("Свет -> "          + myAccount.getLight() +  Html.fromHtml(" &#x20bd"));
+        doubts.add("Газ -> "           + myAccount.getGas() + Html.fromHtml(" &#x20bd"));
+        doubts.add("Вода -> "          + myAccount.getWater() + Html.fromHtml(" &#x20bd"));
+        doubts.add("Интернет -> "      + myAccount.getInternet() + Html.fromHtml(" &#x20bd"));
+        doubts.add("Телефон -> "       + myAccount.getPhone() + Html.fromHtml(" &#x20bd"));
+        doubts.add("Телевидение -> "   + myAccount.getTV() + Html.fromHtml(" &#x20bd"));
         ArrayAdapter<String>  adapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_list_item_1, doubts);
 
