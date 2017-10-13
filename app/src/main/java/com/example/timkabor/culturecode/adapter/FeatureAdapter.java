@@ -20,6 +20,7 @@ import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.model.Feature;
 import com.example.timkabor.culturecode.model.ParkingAction;
+import com.example.timkabor.culturecode.view.impl.DosugActivity;
 import com.example.timkabor.culturecode.view.impl.KidAreaActivity;
 import com.example.timkabor.culturecode.view.impl.MainActivity;
 import com.example.timkabor.culturecode.view.impl.SendMessageActivity;
@@ -119,6 +120,11 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
                     Intent intent = new Intent(view.getContext(), SendMessageActivity.class);
                     Toast.makeText(view.getContext(), "pressed", Toast.LENGTH_SHORT).show();
                     view.getContext().startActivity(intent);
+                    break;
+                    view.getContext().startActivity( new Intent(view.getContext(), SendMessageActivity.class));
+                    break;
+                case 5:
+                    view.getContext().startActivity( new Intent(view.getContext(), DosugActivity.class));
                     break;
             }
         }

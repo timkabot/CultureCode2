@@ -4,11 +4,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.model.Trouble;
@@ -17,14 +22,14 @@ import com.example.timkabor.culturecode.model.TroubleLab;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Timur on 13.10.2017.
- */
-
-public class SendMessageActivity extends AppCompatActivity{
+public class SendMessageActivity extends AppCompatActivity {
     private ArrayList<CheckBox> problems;
     private RecyclerView mTroubleRecyclerView;
     private TroubleAdapter mAdapter;
+    private EditText mEditText;
+    private Button mSendButton;
+    private String messageSend;
+    private String messageTopic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +38,37 @@ public class SendMessageActivity extends AppCompatActivity{
         mTroubleRecyclerView = findViewById(R.id.troubles_recycler_view);
         mTroubleRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mSendButton = findViewById(R.id.send_button);
+        mSendButton.setEnabled(false);
+
+        mSendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(SendMessageActivity.this, messageTopic + " " + messageSend, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mEditText = findViewById(R.id.message_to_send);
+        mEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                messageSend = editable.toString();
+            }
+        });
         updateUI();
     }
 
-    public class TroubleHolder extends RecyclerView.ViewHolder {
+    public class TroubleHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView mTroubleText;
         CheckBox mCheckBox;
         private Trouble mTrouble;
@@ -48,8 +80,16 @@ public class SendMessageActivity extends AppCompatActivity{
         }
 
         public void bindCrime(Trouble trouble) {
+            itemView.setOnClickListener(this);
             mTrouble = trouble;
             mTroubleText.setText(mTrouble.getText());
+        }
+
+        @Override
+        public void onClick(View view) {
+            mSendButton.setEnabled(true);
+            mCheckBox.setChecked(!mCheckBox.isChecked());
+            messageTopic = (String) mTroubleText.getText();
         }
     }
 
@@ -89,6 +129,4 @@ public class SendMessageActivity extends AppCompatActivity{
             mAdapter.notifyDataSetChanged();
         }
     }
-
-
 }

@@ -21,7 +21,7 @@ public class Constants {
         features.add( new Feature(1,"Детская площадка", "kids_space.jpg"));
         features.add( new Feature(2,"Парковка", "parking.jpg"));
         features.add( new Feature(3,"Магазин", "shop.jpg"));
-        features.add( new Feature(4,"ЖКХ", "jkh.png"));
+        features.add( new Feature(4,"Консьерж сервис", "jkh.png"));
         features.add( new Feature(5,"Досуг", "peshehod.jpg"));
         features.add( new Feature(6,"Дистанционный мониторинг", "monitoring.png"));
 
