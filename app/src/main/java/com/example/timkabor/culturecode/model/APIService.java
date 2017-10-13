@@ -12,4 +12,7 @@ import retrofit2.http.POST;
 public interface APIService {
         @POST("/set_gate")
         Call<ParkingAction> changeParkingState();
-    }
+
+        @POST("/message")
+        Call<None> sendMessage(@Body Message message);
+}

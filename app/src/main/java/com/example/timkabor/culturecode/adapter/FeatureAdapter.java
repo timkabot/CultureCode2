@@ -80,14 +80,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
         }
-        public void onNextBooking()
-        {
 
-        }
-        public void onError()
-        {
-
-        }
         /**
          * Обработка нажатия на выбранном элементе
          * Запускает фрагмент описания фичи
@@ -117,10 +110,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
                     });
                     break;
                 case 4:
-                    Intent intent = new Intent(view.getContext(), SendMessageActivity.class);
                     Toast.makeText(view.getContext(), "pressed", Toast.LENGTH_SHORT).show();
-                    view.getContext().startActivity(intent);
-                    break;
                     view.getContext().startActivity( new Intent(view.getContext(), SendMessageActivity.class));
                     break;
                 case 5:

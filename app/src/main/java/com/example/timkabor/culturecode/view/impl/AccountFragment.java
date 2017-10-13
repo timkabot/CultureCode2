@@ -88,6 +88,6 @@ public class AccountFragment extends Fragment {
 
     }
     private void initToolbar() {
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Private account");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Личный аккаунт");
     }
 }

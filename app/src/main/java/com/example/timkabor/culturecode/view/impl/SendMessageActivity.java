@@ -1,5 +1,6 @@
 package com.example.timkabor.culturecode.view.impl;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,12 +16,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.R;
+import com.example.timkabor.culturecode.model.Message;
+import com.example.timkabor.culturecode.model.None;
+import com.example.timkabor.culturecode.model.ParkingAction;
 import com.example.timkabor.culturecode.model.Trouble;
 import com.example.timkabor.culturecode.model.TroubleLab;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SendMessageActivity extends AppCompatActivity {
     private ArrayList<CheckBox> problems;
@@ -41,11 +50,26 @@ public class SendMessageActivity extends AppCompatActivity {
         mSendButton = findViewById(R.id.send_button);
         mSendButton.setEnabled(false);
 
-        mSendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(SendMessageActivity.this, messageTopic + " " + messageSend, Toast.LENGTH_SHORT).show();
-            }
+        mSendButton.setOnClickListener(view ->
+        {
+            SharedPreferences sPref = getSharedPreferences("",MODE_PRIVATE);
+            String name = sPref.getString("login","empty");
+            Message message = new Message( name, messageTopic + " " + messageSend);
+            Toast.makeText(getApplicationContext(),messageTopic + " " + messageSend, Toast.LENGTH_SHORT).show();
+            Call<None> call =  App.getAPI().sendMessage(message);
+            call.enqueue(new Callback<None>() {
+                @Override
+                public void onResponse(Call<None> call, Response<None> response) {
+                    if(response.isSuccessful()){
+                        System.out.println("Succesfull response");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<None> call, Throwable t) {
+
+                }
+            });
         });
 
         mEditText = findViewById(R.id.message_to_send);

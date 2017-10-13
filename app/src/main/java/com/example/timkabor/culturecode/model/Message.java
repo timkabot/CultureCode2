@@ -5,20 +5,20 @@ package com.example.timkabor.culturecode.model;
  */
 
 public class Message {
-    private String name;
+    private String user;
     private String message;
 
     public Message(String name, String message) {
-        this.name = name;
+        this.user = name;
         this.message = message;
     }
 
     public String getName() {
-        return name;
+        return user;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.user = name;
     }
 
     public String getMessage() {
