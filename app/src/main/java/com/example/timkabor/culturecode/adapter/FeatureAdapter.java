@@ -14,12 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.model.Feature;
 import com.example.timkabor.culturecode.view.impl.KidAreaActivity;
 import com.example.timkabor.culturecode.view.impl.MainActivity;
+import com.example.timkabor.culturecode.view.impl.SendMessageActivity;
 
 import java.util.List;
 
@@ -89,6 +91,19 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
         public void goToKidArea() {
             mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
             mainActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            Bundle arguments = new Bundle();
+            arguments.putInt("sightId", feature.getId());
+
+            if (mFeatureTitle.getText() == "ЖКХ") {
+                Intent intent = new Intent(view.getContext(), SendMessageActivity.class);
+                Toast.makeText(view.getContext(), "pressed", Toast.LENGTH_SHORT).show();
+                view.getContext().startActivity(intent);
+            }
+
+           // SightDescriptionFragment fragment = new SightDescriptionFragment();
+           // fragment.setArguments(arguments);
+
+            //mainActivity.showNewFragment(fragment);
 
         }
 

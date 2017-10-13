@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:padding="12dp"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Здесь вы можете отправить свою жалобу консьерж-сервису, которая будет обработана в течении 5 минут"
-        />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/choose_category"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/troubles_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            >
+
+        </android.support.v7.widget.RecyclerView>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/send_to_concierge_hint"
+        android:layout_marginTop="12dp"
+        android:gravity="bottom"
         />
 
-    <EditText
-        android:id="@+id/send_message"
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Оставьте свой телефон"
+        android:background="@color/primary_dark"
+        android:text="Button"
         />
 
 </LinearLayout>
