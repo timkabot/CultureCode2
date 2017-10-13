@@ -27,7 +27,7 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:id="@+id/band_features_list"
-        android:layout_width="match_parent"
+        android:layout_width="332dp"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/textView7"
@@ -39,8 +39,9 @@
     <LinearLayout
         android:layout_gravity="center"
         android:orientation="vertical"
+        android:layout_marginBottom="10dp"
         android:id="@+id/band_commands_list"
-        android:layout_width="match_parent"
+        android:layout_width="328dp"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

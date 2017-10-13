@@ -3,6 +3,7 @@ package com.example.timkabor.culturecode.view.impl;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,8 +30,12 @@ import butterknife.ButterKnife;
 
 public class BandFeaturesFragment extends Fragment {
     @BindView(R.id.band_features_list) LinearLayout mFeaturesView;
+    @BindView(R.id.band_commands_list) LinearLayout mCommandsView;
+
     @BindView(R.id.slider) SliderLayout slider;
     private ArrayList<String> featureList;
+    private ArrayList<String> commandsList;
+
     private FeatureAdapter mAdapter;
     Constants c;
     @Override
@@ -53,6 +58,7 @@ public class BandFeaturesFragment extends Fragment {
         }
 
         setBandInfoData(c.getBandFeatures());
+        setBandCommandData(c.getBandCommands());
         return view;
     }
     public void setBandInfoData(ArrayList<String> features) {
@@ -62,7 +68,15 @@ public class BandFeaturesFragment extends Fragment {
             tv.setText(c.getBandFeatures().get(i));
             mFeaturesView.addView(tv);
         }
-
+    }
+    public void setBandCommandData(ArrayList<String> features) {
+        commandsList = features;
+        for(int i=0;i<c.getBandCommands().size();i++) {
+            TextView tv = new TextView(getContext());
+            tv.setText(c.getBandCommands().get(i));
+            tv.setGravity(Gravity.LEFT);
+            mCommandsView.addView(tv);
+        }
     }
     private void initToolbar() {
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Возможности Браслета");

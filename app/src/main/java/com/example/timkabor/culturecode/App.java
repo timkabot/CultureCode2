@@ -2,6 +2,7 @@ package com.example.timkabor.culturecode;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.ImageView;
 
@@ -13,11 +14,14 @@ import com.squareup.picasso.Picasso;
 
 public class App extends Application {
     private static ColorDrawable placeholder ;
+    private static Resources resources;
 
     @Override
     public void onCreate() {
         super.onCreate();
         placeholder = new ColorDrawable(getResources().getColor(R.color.white));
+        resources = this.getResources();
+
     }
 
     /**
@@ -32,5 +36,9 @@ public class App extends Application {
                 .centerInside()
                 .into(imageView);
     }
-
+    public static void setDrawableByName(String name, ImageView container, Context context) {
+        name = name.split("\\.")[0];//Расширение убираем
+        final int resourceId = resources.getIdentifier(name, "drawable", context.getPackageName());
+        if(resourceId!=0) container.setImageDrawable(resources.getDrawable(resourceId));
+    }
 }
