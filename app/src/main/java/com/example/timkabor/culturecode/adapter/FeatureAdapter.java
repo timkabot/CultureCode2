@@ -11,12 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.R;
 import com.example.timkabor.culturecode.model.Feature;
 import com.example.timkabor.culturecode.view.impl.MainActivity;
-import com.example.timkabor.culturecode.view.impl.SendMessage;
+import com.example.timkabor.culturecode.view.impl.SendMessageActivity;
 
 import java.util.List;
 
@@ -81,8 +82,11 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
             Bundle arguments = new Bundle();
             arguments.putInt("sightId", feature.getId());
 
-            Intent intent = new Intent(view.getContext(), SendMessage.class);
-            view.getContext().startActivity(intent);
+            if (mFeatureTitle.getText() == "ЖКХ") {
+                Intent intent = new Intent(view.getContext(), SendMessageActivity.class);
+                Toast.makeText(view.getContext(), "pressed", Toast.LENGTH_SHORT).show();
+                view.getContext().startActivity(intent);
+            }
 
            // SightDescriptionFragment fragment = new SightDescriptionFragment();
            // fragment.setArguments(arguments);

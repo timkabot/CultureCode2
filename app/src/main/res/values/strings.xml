@@ -22,5 +22,7 @@
     <string name="ficha">Фича</string>
     <string name="name_and_surname">Name and surname</string>
     <string name="doubts">Задолженности:</string>
-    <string name="send_to_concierge_hint">write your message</string>
+    <string name="send_to_concierge_hint">Опишите свою проблему</string>
+    <string name="choose_category">Здесь вы можете отправить свою жалобу консьерж-сервису, которая будет обработана в течении 5 минут.
+        \n\nВыберете категорию:</string>
 </resources>
