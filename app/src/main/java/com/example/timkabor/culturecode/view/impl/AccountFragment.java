@@ -16,16 +16,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.timkabor.culturecode.App;
 import com.example.timkabor.culturecode.Constants;
 import com.example.timkabor.culturecode.R;
-import com.example.timkabor.culturecode.adapter.FeatureAdapter;
 import com.example.timkabor.culturecode.model.Account;
 import com.example.timkabor.culturecode.model.Feature;
+import com.example.timkabor.culturecode.model.ParkingAction;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by Timkabor on 10/13/2017.
@@ -50,10 +54,10 @@ public class AccountFragment extends Fragment {
         assignValues();
         return view;
     }
+
     public void assignValues() {
         name.setText(myAccount.getName() + " " + myAccount.getSurname());
         balance.setText("У вас на счету " + myAccount.getBalance() + Html.fromHtml(" &#x20bd"));
-
         doubts = new ArrayList<>();
         doubts.add("Электричество -> " + myAccount.getElectricity() + Html.fromHtml(" &#x20bd"));
         doubts.add("Свет -> "          + myAccount.getLight() +  Html.fromHtml(" &#x20bd"));
