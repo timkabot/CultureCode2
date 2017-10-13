@@ -29,6 +29,7 @@
         </android.support.v7.widget.RecyclerView>
 
     <EditText
+        android:id="@+id/message_to_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/send_to_concierge_hint"
@@ -37,7 +38,7 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/send_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary_dark"
