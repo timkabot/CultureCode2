@@ -51,7 +51,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Feature feature = mFeatureList.get(position);
         holder.mFeatureTitle.setText(feature.getName());
-        App.loadImageFromURL(feature.getCover(), holder.mFeatureImage,mContext);
+        App.setDrawableByName(feature.getCover(), holder.mFeatureImage,mContext.getApplicationContext());
     }
 
     @Override
@@ -85,7 +85,6 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.ViewHold
                     goToKidArea();
                     break;
             }
-
         }
         public void goToKidArea() {
             mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://streamserv.cmko.ru:54016/stream")));
